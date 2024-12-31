@@ -1,8 +1,7 @@
 
 //Уникализировать массив объектов с помощью Set
 
-//Я не совсем понял как правильно сделать с помощью map и find
-// поэтому сделал с filter и findIndex
+
 
 let arr = [
     {id:1 , name: 'Vasy'},
@@ -14,6 +13,8 @@ let arr = [
 ]
 
 
+//1 способ решиния с помощью метода fiilter/findIndex
+
 let newArr = new Set([...arr].filter((item, index, array) => {
     return index === array.findIndex((el) => el.id === item.id);
 }))
@@ -21,3 +22,12 @@ let newArr = new Set([...arr].filter((item, index, array) => {
 newArr.add({id: 5, name: 'Dima'})
 
 console.log(newArr);
+
+
+
+//2 способ решения с помощью метода map/find
+const set = new Set([...arr].map((item, index, array) => {
+      return  array.find((el) => el.id === item.id);
+}))
+
+console.log(set.add({id: 6, name : 'Aleksey'}));

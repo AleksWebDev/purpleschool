@@ -9,7 +9,8 @@ let arr = [
     {id:2, name: 'Petya'},
     {id:3, name: 'Vladimir'},
     {id:2, name: 'Sasha'},
-    {id:4, name: 'Vova'}
+    {id:4, name: 'Vova'},
+    {id:1, name: 'Vasy'}
 ]
 
 

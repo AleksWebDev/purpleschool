@@ -28,6 +28,7 @@ const validateAge = (users) => {
             users[person].acess = true;
 
             console.log(`Acess granted for ${users[person].name}`);
+            
         }
 
 

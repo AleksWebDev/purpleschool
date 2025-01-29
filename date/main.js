@@ -18,14 +18,17 @@ const users = [
 
 //Привет Сергей!
 // Я понял замечание 
+// Но мне не хватает понимания как правильно реализовать валидация возраста с учетом месяца и дня рождения 
+// Было бы очень классно - если бы вы сделали подсказку как правильно реализоватть такую валидацию 
 
 
 const validateAge = (users) => {
 
     for(let birth in users){
+
         const differece =  Date.now() - new Date(users[birth].dateBirth).getTime();
         const diff = Math.abs(new Date(differece).getUTCFullYear() - 1970);
-        
+
         if(diff >= 14){
             users[birth].access = true;
         }

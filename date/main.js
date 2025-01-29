@@ -16,25 +16,23 @@ const users = [
 ]
 
 
+//Привет Сергей!
+// Я понял замечание 
+
+
 const validateAge = (users) => {
 
-    const now = Number(new Date().getFullYear());
-
-    for(let person in users){
-
-        let personDate = Number(new Date(users[person].dateBirth).getFullYear());
+    for(let birth in users){
+        const differece =  Date.now() - new Date(users[birth].dateBirth).getTime();
+        const diff = Math.abs(new Date(differece).getUTCFullYear() - 1970);
         
-        if((now - personDate) >= 14){
-            users[person].acess = true;
-
-            console.log(`Acess granted for ${users[person].name}`);
+        if(diff >= 14){
+            users[birth].access = true;
         }
-
-
     }
 
     return users;
-
 }
 const res = validateAge(users);
 console.log(res);
+

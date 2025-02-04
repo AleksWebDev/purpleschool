@@ -25,6 +25,24 @@ const users = [
 const validateAge = (users) => {
 
     for(let birth in users){
+        const year = users[birth].dateBirth.substr(0, 4);
+        const month = users[birth].dateBirth.substr(5, 2);
+        const day = users[birth].dateBirth.substr(8, 2)
+
+        const birthDay = new Date(users[birth].dateBirth).getTime();
+        const diff = new Date(Date.now() - birthDay).getUTCFullYear() - new Date(1970);
+
+        if(diff >= 14){
+            users[birth].access = true;
+        }else{
+            users[birth].access = false;
+        }
+
+    }
+
+    return users;
+
+    /* for(let birth in users){
 
         const differece =  Date.now() - new Date(users[birth].dateBirth).getTime();
         const diff = Math.abs(new Date(differece).getUTCFullYear() - 1970);
@@ -34,7 +52,7 @@ const validateAge = (users) => {
         }
     }
 
-    return users;
+    return users; */
 }
 const res = validateAge(users);
 console.log(res);

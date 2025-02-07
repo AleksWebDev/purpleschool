@@ -12,8 +12,8 @@ Personage.prototype.talking = function(){
 
 //Creating Orsimer class which inheritating from Personage class
 
-function Orsimer(race, name, lenguage, health, weapon){
-    Personage.call(this, race, name, lenguage, health);
+function Orsimer(weapon, ...rest){
+    Personage.apply(this, rest);
     this.weapon = weapon;
 }
 
@@ -24,9 +24,15 @@ Orsimer.prototype.hit = function(){
     console.log(`${this.name} is hitting by ${this.weapon}`);
 }
 
-function Elf(race, name, lenguage, health, spell){
-    let spellList = ['fire ball', 'restoration', 'lightning'];
-    Personage.call(this, race, name, lenguage, health);
+function Elf(spell, ...rest){
+    
+    const spellList = {
+        'fireball' : 10,
+        'frozenball' : 15,
+        'lightning' : 12,
+    }
+
+    Personage.apply(this, rest);
     this.spell = spellList[spell];
 }
 
@@ -41,10 +47,9 @@ Elf.prototype.castSpell = function(){
     return `${this.name} is casting new spell ${this.spell}`;
 }
 
-const orsimer1 = new Orsimer('Orsimer', 'Zuluk', 'orsimerian', 100, 'swords');
-const aensidhe = new Elf('Aensidhe', 'Emiel', 'HenAdge', 120, [0]);
+const orsimer1 = new Orsimer('swords', 'Orsimer', 'Zuluk', 'orsimerian', 100);
+const aensidhe = new Elf('frozenball', 'Aensidhe', 'Emiel', 'HenAdge', 120);
 
-console.log(aensidhe);
+console.log(orsimer1.talking());
 console.log(aensidhe.talking());
-console.log(aensidhe.useSpell());
-console.log(aensidhe.castSpell());
+

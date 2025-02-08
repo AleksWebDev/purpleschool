@@ -10,11 +10,11 @@ class Car{
         this.#run = run;
     }
 
-    get runInfo(){
+    get run(){
         return this.#run;
     }
 
-    set runInfo(value){
+    set run(value){
         this.#run = value;
     }
 

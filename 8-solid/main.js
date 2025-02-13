@@ -4,38 +4,58 @@
 Согласно определению Мейера реализация интерфейса может быть унаследована и переиспользована, но интерфейс может и измениться в новой реализации.
 */
 
-class Billing{
-    amount = 0;
+class Billing {
+
+    amount = 8;
+
     constructor(hour){
         this.hour = hour;
     }
 
-    set(val){
-        this.amount = val;
+    calculateTotal(){
+        return this.amount += this.hour;
     }
 
-    get(){
-        return this.amount;
-    }
-};
+}
 
-class FixedBilling extends Billing{
+class HourBilling extends Billing{
+
+    amount = 10;
+
     constructor(hour){
         super(hour)
     }
-};
 
-class HourBilling extends Billing{
-    constructor(hour){
-        super(hour);
+    calculateTotal(){
+        return this.amount += this.hour;
     }
-};
+
+}
+
 
 class ItemBilling extends Billing{
+
+    amount = 8;
+
     constructor(item){
+        super();
         this.item = item;
     }
-};
+
+    calculateTotal(){
+        return this.amount * this.item;
+    }
+}
+
+const hourBilling = new HourBilling(19);
+console.log(hourBilling.calculateTotal());
+
+const itemBilling = new ItemBilling(20);
+console.log(itemBilling.calculateTotal())
+
+
+
+
 
 
 

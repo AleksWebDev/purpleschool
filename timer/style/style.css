@@ -1,0 +1,36 @@
+body{
+    background-color: black;
+}
+
+.container{
+    width: 100vw;
+    height: 100vh;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.title{
+    color: white;
+}
+
+.timer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.timer_items{
+    display: flex;
+    gap: 15px;
+}
+
+.numeric{
+    color: white;
+    list-style-type: none;
+}
+
+
+
